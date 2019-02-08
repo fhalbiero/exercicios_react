@@ -6,7 +6,7 @@ import Field from './field';
 
 ReactDOM.render(
 
-    <Field initialValue="teste" value="a"/>
+    <Field initialValue="teste"/>
   
 
 , document.getElementById("app"));

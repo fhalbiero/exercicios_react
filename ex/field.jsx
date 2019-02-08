@@ -5,22 +5,28 @@ export default class Field extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            value: props.initialValue
+            value: props.initialValue,
+            show: ''
         }
         
-        this.showValue = this.showValue.bind(this);
+        this.showValue = this.showValue.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange(e) {
+        this.setState({value : e.target.value})
     }
 
     showValue() {
-        this.setState({ value : this.props.value });
+        this.setState({show : this.state.value})
     }
 
     render() {
         return (
             <div>
-                <input/>
-                <h1>{this.state.value}</h1>
-                <button onClick={this.showValue}>{this.props.value}</button>
+                <input onChange={this.handleChange}/>
+                <h1>{this.state.show}</h1>
+                <button onClick={this.showValue}>OK</button>
             </div>
         );
     }
